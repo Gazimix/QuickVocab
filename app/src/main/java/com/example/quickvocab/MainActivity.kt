@@ -21,12 +21,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val engButton = findViewById<Button>(R.id.button)
-        val hebButton = findViewById<Button>(R.id.button2)
-        val arabButton = findViewById<Button>(R.id.button3)
+        val arabButton = findViewById<Button>(R.id.button2)
+        val hebButton = findViewById<Button>(R.id.button3)
         engButton.setOnClickListener() { // what happens when you click on English
             val intent = Intent(this, English::class.java)
             startActivity(intent)
         }
+        arabButton.setOnClickListener() { // what happens when you click on English
+            val intent = Intent(this, Arabic::class.java)
+            startActivity(intent)
+        }
+        hebButton.setOnClickListener() { // what happens when you click on English
+            val intent = Intent(this, Hebrew::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }
