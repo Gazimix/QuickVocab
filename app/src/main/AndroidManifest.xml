@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".English"></activity>
+        <activity android:name=".Arabic"></activity>
+        <activity android:name=".Hebrew"></activity>
     </application>
 
 </manifest>

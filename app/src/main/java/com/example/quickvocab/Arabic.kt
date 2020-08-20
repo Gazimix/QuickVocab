@@ -8,8 +8,7 @@ import java.io.BufferedReader
 import java.util.*
 import kotlin.collections.ArrayList
 
-
-class English : AppCompatActivity() {
+class Arabic : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -23,7 +22,7 @@ class English : AppCompatActivity() {
         var dictArray = ArrayList<DictionaryValue>()
 
         val bufferedReader: BufferedReader =
-            getApplicationContext().getAssets().open("english.csv").bufferedReader()
+            getApplicationContext().getAssets().open("arabic.csv").bufferedReader()
         var line: String = bufferedReader.readLine() // get rid of the first line
         line = bufferedReader.readLine() // get rid of the first line
         line = bufferedReader.readLine() // get rid of the first line

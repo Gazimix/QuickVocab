@@ -27,60 +27,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, English::class.java)
             startActivity(intent)
         }
+
     }
 }
-
-//val showButton = findViewById<Button>(R.id.showWord)
-//val nextButton = findViewById<Button>(R.id.nextWord)
-//val wordText = findViewById<TextView>(R.id.word)
-//val meaningText = findViewById<TextView>(R.id.meaning)
-//
-//
-//var dictArray = ArrayList<DictionaryValue>()
-//
-//val bufferedReader: BufferedReader =
-//    getApplicationContext().getAssets().open("result.csv").bufferedReader()
-//var line: String = bufferedReader.readLine() // get rid of the first line
-//line = bufferedReader.readLine() // get rid of the first line
-//line = bufferedReader.readLine() // get rid of the first line
-//while (line != null) {
-//    try {
-//        val tmp = line.split(",")
-//        val word = tmp[0]
-//        var rest = tmp.drop(1).joinToString(separator = ", ")
-//        rest = rest.removePrefix("\"").removeSuffix("\"")
-//        dictArray.add(DictionaryValue(word, rest))
-//        line = bufferedReader.readLine()
-//    }
-//    catch (e : NullPointerException){
-//        break
-//    }
-//}
-//var rand : Int = 0
-//var rand2 : Int = 0
-//wordText.text = "Click on next to show first word"
-//meaningText.text = null
-//nextButton.setOnClickListener() {
-//    meaningText.text = null
-//    rand = Random().nextInt(dictArray.size) // generate random word
-//    rand2 = Random().nextInt(2)
-//    if (rand2 == 0) {
-//        wordText.text = dictArray[rand].getWord()
-//        if (wordText.text.isEmpty() || wordText.text.equals("\"")){
-//            nextButton.performClick()
-//        }
-//    } else {
-//        wordText.text = dictArray[rand].getMeaning()
-//        if (wordText.text.isEmpty()|| wordText.text.equals("\"")){
-//            nextButton.performClick()
-//        }
-//    }
-//
-//}
-//showButton.setOnClickListener() {
-//    if (rand2 == 0) {
-//        meaningText.text = dictArray[rand].getMeaning()
-//    } else {
-//        meaningText.text = dictArray[rand].getWord()
-//    }
-//}
