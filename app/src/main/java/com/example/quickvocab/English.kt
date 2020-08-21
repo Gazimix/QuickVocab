@@ -40,7 +40,7 @@ class English : AppCompatActivity() {
             }
         }
         var rand: Int = 0
-        var rand2: Int = 0
+        var rand2: Int = -1
         wordText.text = "Click on next to show first word"
         meaningText.text = null
         nextButton.setOnClickListener() {
@@ -61,7 +61,8 @@ class English : AppCompatActivity() {
 
         }
         showButton.setOnClickListener() {
-            if (rand2 == 0) {
+            if (rand2 == -1) {}
+            else if (rand2 == 0) {
                 meaningText.text = dictArray[rand].getMeaning()
             } else {
                 meaningText.text = dictArray[rand].getWord()
