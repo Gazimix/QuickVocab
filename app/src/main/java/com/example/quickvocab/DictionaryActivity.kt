@@ -9,7 +9,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class English : AppCompatActivity() {
+class DictionaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -21,25 +21,8 @@ class English : AppCompatActivity() {
 
 
         var dictArray = ArrayList<DictionaryValue>()
-
-        val bufferedReader: BufferedReader =
-            getApplicationContext().getAssets().open("english.csv").bufferedReader()
-        var line: String = bufferedReader.readLine() // get rid of the first line
-        line = bufferedReader.readLine() // get rid of the first line
-        line = bufferedReader.readLine() // get rid of the first line
-        while (line != null) {
-            try {
-                val tmp = line.split(",")
-                val word = tmp[0]
-                var rest = tmp.drop(1).joinToString(separator = ", ")
-                rest = rest.removePrefix("\"").removeSuffix("\"")
-                dictArray.add(DictionaryValue(word, rest))
-                line = bufferedReader.readLine()
-            } catch (e: NullPointerException) {
-                break
-            }
-        }
-        var rand: Int = 0
+        loadCsvFile(dictArray)
+        var rand = 0
         var rand2: Int = -1
         wordText.text = "Click on next to show first word"
         meaningText.text = null
@@ -66,6 +49,29 @@ class English : AppCompatActivity() {
                 meaningText.text = dictArray[rand].getMeaning()
             } else {
                 meaningText.text = dictArray[rand].getWord()
+            }
+        }
+    }
+
+    private fun loadCsvFile(dictArray: ArrayList<DictionaryValue>) {
+        val b = intent.extras
+        var value: String? = b?.getString("key") // or other values
+        if (b != null) value = b.getString("key")
+        val bufferedReader: BufferedReader =
+            getApplicationContext().getAssets().open(value.toString()).bufferedReader()
+        var line: String = bufferedReader.readLine() // get rid of the first line
+        line = bufferedReader.readLine() // get rid of the first line
+        line = bufferedReader.readLine() // get rid of the first line
+        while (line != null) {
+            try {
+                val tmp = line.split(",")
+                val word = tmp[0]
+                var rest = tmp.drop(1).joinToString(separator = ", ")
+                rest = rest.removePrefix("\"").removeSuffix("\"")
+                dictArray.add(DictionaryValue(word, rest))
+                line = bufferedReader.readLine()
+            } catch (e: NullPointerException) {
+                break
             }
         }
     }
