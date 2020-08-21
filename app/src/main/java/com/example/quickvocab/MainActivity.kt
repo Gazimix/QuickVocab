@@ -18,21 +18,21 @@ class MainActivity : AppCompatActivity() {
         engButton.setOnClickListener() { // what happens when you click on English
             val intent = Intent(this, DictionaryActivity::class.java)
             val b : Bundle = Bundle();
-            b.putString("key", "english.csv"); //Your id
+            b.putString("fileName", "english.csv"); //Your id
             intent.putExtras(b)
             startActivity(intent)
         }
         arabButton.setOnClickListener() { // what happens when you click on Arabic
             val intent = Intent(this, DictionaryActivity::class.java)
             val b : Bundle = Bundle();
-            b.putString("key", "arabic.csv"); //Your id
+            b.putString("fileName", "arabic.csv"); //Your id
             intent.putExtras(b)
             startActivity(intent)
         }
         hebButton.setOnClickListener() { // what happens when you click on Hebrew
             val intent = Intent(this, DictionaryActivity::class.java)
             val b : Bundle = Bundle();
-            b.putString("key", "hebrew.csv"); //Your id
+            b.putString("fileName", "hebrew.csv"); //Your id
             intent.putExtras(b)
             startActivity(intent)
         }

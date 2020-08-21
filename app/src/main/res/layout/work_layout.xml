@@ -2,41 +2,55 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/grayish"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/prevWord"
+        android:layout_width="170dp"
+        android:layout_height="79dp"
+        android:text="Previous Word"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meaning"
+        app:layout_constraintVertical_bias="0.88" />
+
+    <Button
+        android:id="@+id/nextWord"
+        android:layout_width="170dp"
+        android:layout_height="79dp"
+        android:text="Next Word"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meaning"
+        app:layout_constraintVertical_bias="0.888" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginTop="80dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/nextWord"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meaning"
-        app:layout_constraintVertical_bias="0.565" />
-
-    <Button
-        android:id="@+id/nextWord"
-        android:layout_width="168dp"
-        android:layout_height="58dp"
-        android:text="Next Word"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meaning"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintTop_toBottomOf="@+id/meaning" />
 
     <TextView
         android:id="@+id/word"
-        android:layout_width="339dp"
-        android:layout_height="130dp"
+        android:layout_width="348dp"
+        android:layout_height="208dp"
         android:layout_marginTop="50dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#D5CBCB"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +58,11 @@
 
     <TextView
         android:id="@+id/meaning"
-        android:layout_width="339dp"
-        android:layout_height="130dp"
+        android:layout_width="353dp"
+        android:layout_height="210dp"
         android:layout_marginTop="50dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,12 +72,12 @@
         android:id="@+id/showWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
         android:text="Show"
-        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meaning"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.793" />
+
 </android.support.constraint.ConstraintLayout>
