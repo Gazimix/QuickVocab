@@ -14,18 +14,21 @@ class DictionaryActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.work_layout)
+
         val showButton = findViewById<Button>(R.id.showWord)
         val nextButton = findViewById<Button>(R.id.nextWord)
         val wordText = findViewById<TextView>(R.id.word)
         val meaningText = findViewById<TextView>(R.id.meaning)
 
-
         var dictArray = ArrayList<DictionaryValue>()
+
         loadCsvFile(dictArray)
+
         var rand = 0
         var rand2: Int = -1
         wordText.text = "Click on next to show first word"
         meaningText.text = null
+
         nextButton.setOnClickListener() {
             meaningText.text = null
             rand = Random().nextInt(dictArray.size) // generate random word

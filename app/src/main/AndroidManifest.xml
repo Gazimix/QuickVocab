@@ -17,8 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".DictionaryActivity"></activity>
-        <activity android:name=".Arabic"></activity>
-        <activity android:name=".Hebrew"></activity>
     </application>
 
 </manifest>
