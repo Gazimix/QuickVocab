@@ -61,6 +61,7 @@ class DictionaryActivity : AppCompatActivity() {
         // buttons and what they do
         prevButton.setOnClickListener() {
             if (i > 0) {
+                meaningText.text = null
                 --i
                 rand = visitedArray[i].second
                 rand2 = visitedArray[i].first

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#85929E</color>
+    <color name="colorPrimary">#5E6064</color>
     <color name="colorPrimaryDark">#283747</color>
     <color name="colorAccent">#525157</color>
-    <color name="grayish">#283747</color>
+    <color name="grayish">#31353C</color>
+    <color name="buttony">#878A8D</color>
 </resources>
+<!--5E6064-->
+<!--85929E-->
