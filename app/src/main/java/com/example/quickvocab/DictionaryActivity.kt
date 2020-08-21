@@ -12,30 +12,53 @@ const val FIRST_MSG = "Click on next to show first word"
 
 
 class DictionaryActivity : AppCompatActivity() {
+    private fun loadCsvFile(dictArray: ArrayList<DictionaryValue>) {
+        val b = intent.extras
+        var value: String? = b?.getString("fileName") // or other values
+        if (b != null) value = b.getString("fileName")
+        val bufferedReader: BufferedReader =
+            getApplicationContext().getAssets().open(value.toString()).bufferedReader()
+        var line: String = bufferedReader.readLine() // get rid of the first line
+        line = bufferedReader.readLine()
+        while (line != null) {
+            try {
+                val tmp = line.split(",")
+                val word = tmp[0]
+                var rest = tmp.drop(1).joinToString(separator = ", ")
+                rest = rest.removePrefix("\"").removeSuffix("\"")
+                dictArray.add(DictionaryValue(word, rest))
+                line = bufferedReader.readLine()
+                while (line.isEmpty()) {
+                    line = bufferedReader.readLine()
+                }
+            } catch (e: NullPointerException) {
+                break
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.work_layout)
-
+        // initializations
         val showButton = findViewById<Button>(R.id.showWord)
         val nextButton = findViewById<Button>(R.id.nextWord)
         val prevButton = findViewById<Button>(R.id.prevWord)
         val wordText = findViewById<TextView>(R.id.word)
         val meaningText = findViewById<TextView>(R.id.meaning)
-
         val dictArray = ArrayList<DictionaryValue>()
-
         val visitedArray = ArrayList<Pair<Int, Int>>()
-
-
         var i: Int = -1
-
-        loadCsvFile(dictArray)
         var rand = 0
         var rand2: Int = -1
+
+        // loading relevant csv file
+        loadCsvFile(dictArray)
         wordText.text = FIRST_MSG
         meaningText.text = null
 
+        // buttons and what they do
         prevButton.setOnClickListener() {
             if (i > 0) {
                 --i
@@ -78,30 +101,4 @@ class DictionaryActivity : AppCompatActivity() {
             }
         }
     }
-
-    private fun loadCsvFile(dictArray: ArrayList<DictionaryValue>) {
-        val b = intent.extras
-        var value: String? = b?.getString("fileName") // or other values
-        if (b != null) value = b.getString("fileName")
-        val bufferedReader: BufferedReader =
-            getApplicationContext().getAssets().open(value.toString()).bufferedReader()
-        var line: String = bufferedReader.readLine() // get rid of the first line
-        line = bufferedReader.readLine()
-        while (line != null) {
-            try {
-                val tmp = line.split(",")
-                val word = tmp[0]
-                var rest = tmp.drop(1).joinToString(separator = ", ")
-                rest = rest.removePrefix("\"").removeSuffix("\"")
-                dictArray.add(DictionaryValue(word, rest))
-                line = bufferedReader.readLine()
-                while (line.isEmpty()) {
-                    line = bufferedReader.readLine()
-                }
-            } catch (e: NullPointerException) {
-                break
-            }
-        }
-    }
-
 }
